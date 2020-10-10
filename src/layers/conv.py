@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../src/helpers')
+sys.path.append('../helpers')
 from im2col import im2col
 import numpy as np
 
