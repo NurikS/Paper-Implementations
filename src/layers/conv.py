@@ -2,6 +2,7 @@ import sys
 sys.path.append('../src/helpers')
 from im2col import im2col
 import torch
+from torchvision import transforms
 
 class Conv2D:
     def __init__(self, num_filters, size=(3,3), stride=1, padding=1):
@@ -31,7 +32,7 @@ class Conv2D:
         return result
     
     def forward(self, X):
-        cols = self.im2col(X, 3)
+        cols = self.im2col(X, self.kernel_size[0])
         convolved_arrs = []
         for kernel in self.kernels:
             convolved = torch.matmul(kernel.flatten(), cols)
